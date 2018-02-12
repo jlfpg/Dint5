@@ -4,10 +4,10 @@
     <!--Movimiento-->
     <translate
         android:duration="1000"
-        android:fromXDelta="0%"
+        android:fromXDelta="-250%"
         android:fromYDelta="0%"
-        android:toXDelta="20%"
-        android:toYDelta="130%"
+        android:toXDelta="0%"
+        android:toYDelta="0%"
         android:interpolator="@android:anim/linear_interpolator"
         >
 
