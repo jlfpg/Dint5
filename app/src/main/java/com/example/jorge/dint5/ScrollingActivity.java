@@ -18,7 +18,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
     ScrollingActivityEvents events;
     FloatingActionButton fab,fab1,fab2,fab3;
-    Animation show_fab1,hide_fab1;
+    Animation show_fab1,hide_fab1,show_fab2,hide_fab2,show_fab3,hide_fab3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,12 @@ public class ScrollingActivity extends AppCompatActivity {
 
         show_fab1 = AnimationUtils.loadAnimation(this,R.anim.fab1_show);
         hide_fab1 = AnimationUtils.loadAnimation(this,R.anim.fab1_hide);
+
+        show_fab2 = AnimationUtils.loadAnimation(this,R.anim.fab2_show);
+        hide_fab2 = AnimationUtils.loadAnimation(this,R.anim.fab2_hide);
+
+        show_fab3 = AnimationUtils.loadAnimation(this,R.anim.fab3_show);
+        hide_fab3 = AnimationUtils.loadAnimation(this,R.anim.fab3_hide);
 
     }
 
@@ -75,21 +81,44 @@ public class ScrollingActivity extends AppCompatActivity {
         //fab1.setLayoutParams(layoutParams);
 
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams)fab1.getLayoutParams();
-        layoutParams.rightMargin+=(int)(fab1.getWidth()*2.5);
-
+        layoutParams.rightMargin+=(int)(fab1.getWidth()*1.8);
         fab1.setLayoutParams(layoutParams);
         fab1.startAnimation(show_fab1);
         fab1.setClickable(true);
+
+        CoordinatorLayout.LayoutParams layoutParams2 = (CoordinatorLayout.LayoutParams)fab2.getLayoutParams();
+        layoutParams2.rightMargin+=(int)(fab2.getWidth()*3.2);
+        fab2.setLayoutParams(layoutParams2);
+        fab2.startAnimation(show_fab2);
+        fab2.setClickable(true);
+
+        CoordinatorLayout.LayoutParams layoutParams3 = (CoordinatorLayout.LayoutParams)fab3.getLayoutParams();
+        layoutParams3.rightMargin+=(int)(fab3.getWidth()*4.6);
+        fab3.setLayoutParams(layoutParams3);
+        fab3.startAnimation(show_fab3);
+        fab3.setClickable(true);
     }
 
     public void hideFabs(){
         //Log.v("scrollingActivity", "hideFabs");
-        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams)fab1.getLayoutParams();
-        layoutParams.rightMargin+=(int)(fab1.getWidth()*2.5);
 
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams)fab1.getLayoutParams();
+        layoutParams.rightMargin-=(int)(fab1.getWidth()*1.8);
         fab1.setLayoutParams(layoutParams);
         fab1.startAnimation(hide_fab1);
         fab1.setClickable(false);
+
+        CoordinatorLayout.LayoutParams layoutParams2 = (CoordinatorLayout.LayoutParams)fab2.getLayoutParams();
+        layoutParams2.rightMargin-=(int)(fab2.getWidth()*3.2);
+        fab2.setLayoutParams(layoutParams2);
+        fab2.startAnimation(hide_fab2);
+        fab2.setClickable(false);
+
+        CoordinatorLayout.LayoutParams layoutParams3 = (CoordinatorLayout.LayoutParams)fab3.getLayoutParams();
+        layoutParams3.rightMargin-=(int)(fab3.getWidth()*4.6);
+        fab3.setLayoutParams(layoutParams3);
+        fab3.startAnimation(hide_fab3);
+        fab3.setClickable(false);
     }
 }
 
